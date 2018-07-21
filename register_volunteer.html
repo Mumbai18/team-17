@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Donor Registration</title>
+  <title>Volunteer Registration</title>
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" />
@@ -55,7 +55,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-auto text-center">
-          <h1>Donor Registration</h1>
+          <h1>Volunteer Registration</h1>
           
         </div>
       </div>
@@ -70,17 +70,17 @@
               <h3 class="text-center">Please fill out this form to contact us</h3>
               <hr>
 
-              <form id="register_donor" name="register_donor" action="register_donor.php" method="POST">
+              <form id="register_volunteer" name="register_volunteer" action="register_volunteer.php" method="POST">
                 
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="name" class="form-control" name="name" placeholder="Name">
+                      <input type="text" id="volunteer_name" class="form-control" name="volunteer_name" placeholder="Name">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="pan_no" class="form-control" name="pan_no" placeholder="Pan No">
+                      <input type="text" id="phone_no" class="form-control" name="phone_no" placeholder="Phone Number">
                     </div>
                   </div>
                 </div>
@@ -88,33 +88,36 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="phone_no"  class="form-control" name="phone_no" placeholder="Phone no">
+                      <input type="text" id="email"  class="form-control" name="email" placeholder="Email">
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="password" id="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <input type="text" id="address" class="form-control" name="address" placeholder="Address">
                     </div>
                   </div>
-                </div>
-
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="payment_amt" class="form-control" name="payment_amt" placeholder="Payment Amount">
+                      <select id="address" class="form-control" name="role_id">
+                        <option value="2">Volunteer</option>
+                        <option value="3">Staff</option>
+                      </select>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input type="text" id="mode_of_payment" class="form-control" name="mode_of_payment" placeholder="Mode of Payment">
-                    </div>
-                  </div>
-                </div>
+                </div>                
 
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="text" class="form-control" name="purpose_of_donation" placeholder="Payment Purpose">
+                      <input type="text" id="skills" class="form-control" name="skills" placeholder="Skills">
                     </div>
                   </div>
                 </div>

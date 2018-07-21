@@ -134,6 +134,7 @@
         <th>Hospital File No</th>
         <th>Type 0f Cancer</th>
         <th>Gender</th>
+        <th>Service</th>
 
     </tr>
 
@@ -142,27 +143,39 @@
     <!--    --><?php
     //$volunteer_id =session_id();
     $volunteer_id=3;
-    if($stmt = $connection->prepare("SELECT patient_id FROM patient_volunteer_relation WHERE volunteer_id = ?")) {
+    if($stmt = $connection->prepare("SELECT patient_id,sub_program_id FROM patient_volunteer_relation WHERE volunteer_id = ?")) {
         $stmt->bind_param("i", $volunteer_id);
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($patient_id);
+        $stmt->bind_result($patient_id,$sub_program_id);
         $i=0;
     while ($stmt->fetch()) {
 
 
-        if($stmt1 = $connection->prepare("SELECT name,age,file_no,type_of_cancer,gender FROM patient WHERE id = ?")){
+        if($stmt1 = $connection->prepare("SELECT name,age,file_no,type_of_cancer,gender FROM patient WHERE id = ?")) {
             $stmt1->bind_param("i", $patient_id);
             $stmt1->execute();
-            $stmt1->bind_result($name, $age, $file_no, $type_of_cancer,$gender);
-            while($stmt1->fetch()){
+            $stmt1->bind_result($name, $age, $file_no, $type_of_cancer, $gender);
+            while ($stmt1->fetch()) {
                 echo "<tr><td>";
                 echo "$name</td><td>";
                 echo "$age</td><td>";
                 echo "$file_no</td><td>";
                 echo "$type_of_cancer</td><td>";
                 echo "$gender</td><td>";
+
             }
+            $stmt1->close();
+        }
+            if($stmt1 = $connection->prepare("SELECT name FROM sub_program WHERE id = ?")){
+                $stmt1->bind_param("i", $sub_program_id);
+                $stmt1->execute();
+                $stmt1->bind_result($name);
+                while($stmt1->fetch()){
+
+                    echo "$name</td></tr>";
+
+                }
             $stmt1->close();
             $i=$i+1;
         }
