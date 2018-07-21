@@ -183,7 +183,7 @@
                               echo "<div class=\"form-group\">";
                               echo "".$name.":";
 
-                              echo '<select class="js-example-basic-multiple form-control multiselect"  name="service" multiple="multiple">';
+                              echo '<select class="js-example-basic-multiple form-control multiselect"  name="service[]" multiple="multiple">';
 
 
                                 $stmt1=$connection->prepare('SELECT name,id FROM sub_program WHERE main_program_id=?');

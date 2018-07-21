@@ -31,11 +31,11 @@ $password="Patient123";
 //
 
 echo 'patientname: '.$patientname." ".$hospital." ".$age." ".$city." ".$cancertype." ".$followup;
-echo "array".$service;
+//echo "array".$service;
 
 //if(isset($patientname) && isset($hospital) && isset($city) && isset($age) && isset($followup) && isset($gender) && isset($cancertype) && isset($phone)){
-
-foreach ($_POST['service'] as $service) {
+echo $_POST['service'];
+foreach($_POST['service'] as $service) {
 
     echo "i am here";
     $stmt = $connection->prepare('INSERT INTO patient(name,hospital,age,address,gender,follow_up,type_of_cancer,phone_no,password) values(?,?,?,?,?,?,?,?)');
