@@ -1,38 +1,79 @@
 <?php
 //databse operations
-/*
+
 include_once('functions.php');
 include_once('connection.php');
 
-if(isset($_POST['login']))
-{
+if(isset($_POST['login'])) {
 
-    $username=validateFormData($_POST['username']);
-    $password=validateFormData($_POST['password']);
-  //  echo $username."      ".$password;
-    $table=validateFormData($_POST['']);
-    $stmt=$connection->prepare('Select * from ?');
-    $stmt->bind_param("s",$table);
-    $stmt->execute();
-    $stmt->store_result();
+    $username = validateFormData($_POST['username']);
+    $password = validateFormData($_POST['password']);
+    //  echo $username."      ".$password;
+    $table = validateFormData($_POST['table']);
+    session_start();
 
-    if($user->authorizeUser($username,$password))
-    {
-        session_start();
-        $_SESSION['user']=$user;
+    if ($table == "volunteer") {
+        $stmt = $connection->prepare('Select volunteer_name,id,role_id from volunteer');
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result($vname, $vid, $vrole);
+        $_SESSION['vname'] = $vname;
+        $_SESSION['vid'] = $id;
+        if ($vrole == 1) {
+            header('Location:loggedin.php');
+        } else if ($vrole = 2) {
 
-        if($username=='admin'){
-            header('Location:inventory.php');
-        }else {
+            header('Location:loggedin.php');
+
+        } else if ($vrole = 3) {
+
+            header('Location:loggedin.php');
+
+        } else {
             header('Location:loggedin.php');
         }
-    }
-    else
-    {
-        header('Location:login.php?auth=fail');
+    } else if ($table == "donor") {
+        $stmt1 = $connection->prepare('Select name,id from donor');
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($dname, $did);
+        if ($stmt1->num_rows > 0) {
+            $_SESSION['dname'] = $dname;
+            $_SESSION['did'] = $did;
+            header('Location:loggedinw.php');
+        } else {
+            header('Location:loggedin.php');
+        }
+
+    } else if ($table == "patient") {
+
+        $stmt2 = $connection->prepare('Select name,id from patient');
+        $stmt2->execute();
+        $stmt2->store_result();
+        $stmt2->bind_result($pname, $pid);
+        //$stmt2->fetch();
+        echo "".$pname;
+        if ($stmt2->num_rows > 0) {
+            $_SESSION['pname'] = $pname;
+            $_SESSION['pid'] = $pid;
+            header('Location:loggedissn.php');
+
+
+        } else {
+            header('Location:loggedin.php');
+        }
+
+
+    } else {
+
+        header('Location:loggedin.php');
+
     }
 
-}*/
+
+}
+
+
 
 ?>
 
@@ -70,7 +111,7 @@ if(isset($_POST['login']))
                     <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="Volunteer.html" class="nav-link">Volunteer</a>
+                    <a href="Volunteer.php" class="nav-link">Volunteer</a>
                 </li>
                 <li class="nav-item">
                     <a href="Donor.html" class="nav-link">Donor</a>
@@ -117,6 +158,7 @@ if(isset($_POST['login']))
                     <div class="card-body">
                         <h3 class="text-center">Login</h3>
                         <hr>
+                        <form class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
@@ -135,16 +177,15 @@ if(isset($_POST['login']))
 
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
+                            <select class="form-control" name="table">
+                                        <option value="patient">Patient</option>
+                                        <option value="volunteer">Volunteer</option>
+                                        <option value="volunteer">Admin</option>
+                                        <option value="volunteer">Staff</option>
+                                        <option value="donor">Donor</option>
 
-                            <div class="dropdown">
-                                    <a href="#" data-toggle="dropdown" name="table" class="dropdown-toggle form-control">User Type:<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li value="patient">Patient</li>
-                                        <li value="staff">Volunteer</li>
-                                        <li value="staff">Admin</li>
-                                        <li value="staff">Staff</li>
-                                        <li value="donor'>Donor</li>
-                                    </ul>
+                            </select>
+
                             </div>
                                 <div class="col-md-2"></div>
 
@@ -157,6 +198,7 @@ if(isset($_POST['login']))
                                 <input type="submit" name="login" value="Login" class="btn btn-outline-danger btn-block">
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

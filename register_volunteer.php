@@ -7,7 +7,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $address = $_POST['address'];
 $skills = $_POST['skills'];
-$role_id = 2;
+$role_id = $_POST['role_id'];
 
 $sql = $connection->prepare("INSERT INTO volunteer (volunteer_name,skills,address,phone_no,role_id,password) VALUES (?,?,?,?,?,?)");
 $sql->bind_param('ssssss',$volunteer_name,$skills,$address,$phone_no,$role_id,$password);
