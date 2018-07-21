@@ -27,11 +27,11 @@ if(isset($_POST['login'])) {
             header('Location:admin.html');
         } else if ($vrole == 2) {
 
-            header('Location:Volunteer.html');
+            header('Location:volunteer_detail.php');
 
         } else if ($vrole == 3) {
 
-            header('Location:Volunteer.html');
+            header('Location:volunteer_detail.php');
 
         } else {
             header('Location:index.html');
@@ -44,9 +44,9 @@ if(isset($_POST['login'])) {
         if ($stmt1->num_rows > 0) {
             $_SESSION['dname'] = $dname;
             $_SESSION['did'] = $did;
-            header('Location:donor.html');
+            header('Location:donor_detail.php');
         } else {
-            header('Location:loggedin.php');
+            header('Location:login.php');
         }
 
     } else if ($table == "patient") {
@@ -60,11 +60,11 @@ if(isset($_POST['login'])) {
         if ($stmt2->num_rows > 0) {
             $_SESSION['pname'] = $pname;
             $_SESSION['pid'] = $pid;
-            header('Location:loggedissn.php');
+            header('Location:patient_detail.php');
 
 
         } else {
-            header('Location:loggedin.php');
+            header('Location:login.php');
         }
 
 
