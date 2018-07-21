@@ -24,10 +24,10 @@
 </style>
 </head>
 <body>
-  <form action="/registration" method="POST" name="registration">
+  <form action="/registration" id="registration" method="POST" name="registration">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-      <a href="index.html" class="navbar-brand">VCare</a>
+      <a href="index.html" class="navbar-brand">V Care</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navNavbar"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
@@ -75,22 +75,22 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name">
+                    <input type="text" class="form-control" name="Name" id="Name" placeholder="Name">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="number" class="form-control" placeholder="Age">
+                    <input type="number" class="form-control" name="Age" id="Age" placeholder="Age">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Sex">
+                    <input type="text" class="form-control" name="Sex" id="Sex" placeholder="Sex">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" name="password"  placeholder="Password">
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -167,7 +167,7 @@
     
                 <div class="col-md-4">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Phone Number">
+                    <input type="text" class="form-control" name="Phone Number" id="Phone Number" placeholder="Phone Number">
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -420,8 +420,6 @@
       Name: "required",
       Age: "required",
       Sex:"required",
-      Type of Cancer:"required";
-      Location:"required";
       Phone number:"required";
       email: {
         required: true,
@@ -439,8 +437,6 @@
       Name: "Please enter your Name",
       Age: "Please enter your Age",
       Sex: "Please enter your Sex",
-      Type of Cancer: "Please enter the Type of Cancer",
-      Location: "Please enter your Location",
       Phone number: "Please enter your Phone number",
       password: {
         required: "Please provide a password",
