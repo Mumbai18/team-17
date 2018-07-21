@@ -13,34 +13,38 @@ if(isset($_POST['login'])) {
     session_start();
 
     if ($table == "volunteer") {
-        $stmt = $connection->prepare('Select volunteer_name,id,role_id from volunteer');
-        $stmt->execute();
+        $stmt = $connection->prepare('Select volunteer_name,id,role_id from volunteer WHERE volunteer_name = ? and password = ?');
+        // $stmt->bind_param("ss",$username,$password);
+        $stmt->execute([$username,$password]);
         $stmt->store_result();
         $stmt->bind_result($vname, $vid, $vrole);
         $_SESSION['vname'] = $vname;
         $_SESSION['vid'] = $id;
+        echo $vname;
+        echo $vid;
+        echo $vrole;
         if ($vrole == 1) {
-            header('Location:loggedin.php');
-        } else if ($vrole = 2) {
+            header('Location:admin.html');
+        } else if ($vrole == 2) {
 
-            header('Location:loggedin.php');
+            header('Location:Volunteer.html');
 
-        } else if ($vrole = 3) {
+        } else if ($vrole == 3) {
 
-            header('Location:loggedin.php');
+            header('Location:Volunteer.html');
 
         } else {
             header('Location:index.html');
         }
     } else if ($table == "donor") {
-        $stmt1 = $connection->prepare('Select name,id from donor');
-        $stmt1->execute();
+        $stmt1 = $connection->prepare('Select name,id from donor where name = ? and password = ?');
+        $stmt1->execute([$username,$password]);
         $stmt1->store_result();
         $stmt1->bind_result($dname, $did);
         if ($stmt1->num_rows > 0) {
             $_SESSION['dname'] = $dname;
             $_SESSION['did'] = $did;
-            header('Location:loggedinw.php');
+            header('Location:donor.html');
         } else {
             header('Location:loggedin.php');
         }
@@ -66,7 +70,7 @@ if(isset($_POST['login'])) {
 
     } else {
 
-        header('Location:loggedin.php');
+        header('Location:login.php');
 
     }
 
