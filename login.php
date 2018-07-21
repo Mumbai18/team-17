@@ -30,7 +30,7 @@ if(isset($_POST['login'])) {
             header('Location:loggedin.php');
 
         } else {
-            header('Location:loggedin.php');
+            header('Location:index.html');
         }
     } else if ($table == "donor") {
         $stmt1 = $connection->prepare('Select name,id from donor');
@@ -116,9 +116,12 @@ if(isset($_POST['login'])) {
                 <li class="nav-item">
                     <a href="Donor.html" class="nav-link">Donor</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact</a>
                 </li>
+                <li class="nav-item active">
+                    <a href="login.php" class="nav-link">Login</a>
+                  </li>
             </ul>
         </div>
     </div>
