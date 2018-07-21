@@ -35,16 +35,19 @@ echo 'patientname: '.$patientname." ".$hospital." ".$age." ".$city." ".$cancerty
 
 //if(isset($patientname) && isset($hospital) && isset($city) && isset($age) && isset($followup) && isset($gender) && isset($cancertype) && isset($phone)){
 echo $_POST['service'];
-foreach($_POST['service'] as $service) {
+//foreach($_POST['service'] as $service) {
 
     echo "i am here";
     $stmt = $connection->prepare('INSERT INTO patient(name,hospital,age,address,gender,follow_up,type_of_cancer,phone_no,password) values(?,?,?,?,?,?,?,?)');
     $stmt->bind_param("sssissss", $patientname, $hospital, $city, $age, $gender, $followup, $cancertype, $phone,$password);
     if ($stmt->execute()) {
+        echo "i am in if";
+        $stmt = $connection->prepare('select patient_id from ');
+        $stmt->bind_param("sssissss", $patientname, $hospital, $city, $age, $gender, $followup, $cancertype, $phone,$password);
 
     } else {
         print $stmt->error;
-    }
+  //  }
 
 }
 //}
