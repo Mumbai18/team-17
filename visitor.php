@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Donor Registration</title>
+  <title>Visitor Registration</title>
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" />
@@ -55,7 +55,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-auto text-center">
-          <h1>Donor Registration</h1>
+          <h1>Visitor Registration</h1>
           
         </div>
       </div>
@@ -70,7 +70,7 @@
               <h3 class="text-center">Please fill out this form to contact us</h3>
               <hr>
 
-              <form id="register_donor" name="register_donor" action="register_donor.php" method="POST">
+              <form id="register_donor" name="register_vistor" action="register_visitor.php" method="POST">
                 
                 <div class="row">
                   <div class="col-md-6">
@@ -80,7 +80,23 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="pan_no" class="form-control" name="pan_no" placeholder="Pan No">
+                      <!-- <input type="text" id="location" class="form-control" name="location" placeholder="Location"> -->
+                      <select class="form-control" id="location" name="location">
+                        <?php
+                          require 'connection.php';
+
+                          $sql = $connection->prepare('SELECT name from city'); 
+                          if($sql->execute()){
+                            $sql->bind_result($name);
+                            while($sql->fetch()){
+                              echo '<option></option>';
+                             }
+                          }
+                          else{
+                            echo $sql->error;
+                          }
+                        ?>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -88,12 +104,12 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="phone_no"  class="form-control" name="phone_no" placeholder="Phone no">
+                      <input type="text" id="gender"  class="form-control" name="gender" placeholder="Gender">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="address" class="form-control" name="address" placeholder="Address">
+                      <input type="text" id="age" class="form-control" name="age" placeholder="Age">
                     </div>
                   </div>
                 </div>
@@ -101,12 +117,12 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="payment_amt" class="form-control" name="payment_amt" placeholder="Payment Amount">
+                      <input type="text" id="type_of_cancer" class="form-control" name="type_of_cancer" placeholder="Type of Cancer">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input type="text" id="mode_of_payment" class="form-control" name="mode_of_payment" placeholder="Mode of Payment">
+                      <input type="text" id="phone_no" class="form-control" name="phone_no" placeholder="Phone Number">
                     </div>
                   </div>
                 </div>
@@ -114,7 +130,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="text" class="form-control" name="purpose_of_donation" placeholder="Payment Purpose">
+                      <input type="text" id="query" class="form-control" name="query" placeholder="Query">
                     </div>
                   </div>
                 </div>

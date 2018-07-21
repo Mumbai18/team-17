@@ -16,11 +16,15 @@ $age = $_POST['age'];
 $cancertype = $_POST['type_of_cancer'];
 $phone = $_POST['phone_no'];
 
-if(isset($patientname) && isset($city) && isset($gender) && isset($reason) && isset($cancertype) && isset($phone) ){
+$stmt = $connection->prepare('INSERT INTO visitor(name,location,gender,query,type_of_cancer,phone_no,age) values(?,?,?,?,?,?,?)');
+$stmt->bind_param("ssssssi",$patientname,$city,$gender,$reason,$cancertype,$phone,$age);
 
-    $stmt=$connection->prepare('INSERT INTO visitor(name,location,gender,query,type_of_cancer,phone_no,age) values(?,?,?,?,?,?,?)');
-    $stmt->bind_param("ssssssi",$patientname,$city,$gender,$reason,$cancertype,$phone,$age);
-    $stmt->execute();
+if($stmt->execute()){
 }
+else{
+	print $stmt->error;
+}
+
+
 
 ?>
