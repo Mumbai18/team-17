@@ -70,7 +70,7 @@ if(isset($_POST['login']))
                     <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="Volunteer.html" class="nav-link">Volunteer</a>
+                    <a href="Volunteer.php" class="nav-link">Volunteer</a>
                 </li>
                 <li class="nav-item">
                     <a href="Donor.html" class="nav-link">Donor</a>
