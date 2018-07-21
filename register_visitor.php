@@ -8,18 +8,19 @@
 
 include_once('connection.php');
 session_start();
-$patientname=$_POST['patientname'];
-$city=$_POST['city'];
-$gender=$_POST['gender'];
-$reason=$_POST['reason'];
-$age=$_POST['age'];
-$cancertype=$_POST['type'];
-$phone=$_POST['phoneno'];
+$patientname = $_POST['name'];
+$city = $_POST['location'];
+$gender = $_POST['gender'];
+$reason = $_POST['query'];
+$age = $_POST['age'];
+$cancertype = $_POST['type_of_cancer'];
+$phone = $_POST['phone_no'];
+
 if(isset($patientname) && isset($city) && isset($gender) && isset($reason) && isset($cancertype) && isset($phone) ){
 
-    $stmt=$connection->prepare('INSERT INTO visitor(patientname,city,gender,reason,cancertype,phone,age) values(?,?,?,?,?,?,?)');
+    $stmt=$connection->prepare('INSERT INTO visitor(name,location,gender,query,type_of_cancer,phone_no,age) values(?,?,?,?,?,?,?)');
     $stmt->bind_param("ssssssi",$patientname,$city,$gender,$reason,$cancertype,$phone,$age);
     $stmt->execute();
-
 }
+
 ?>

@@ -11,6 +11,29 @@
   <link rel="stylesheet" href="css1/style.css">
 </head>
 <body>
+  <div class="se-pre-con"></div>
+  <style type="text/css">
+    .no-js #loader { display: none;  }
+    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+    .se-pre-con {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: url(anim/loader-64x/Preloader_2.gif) center no-repeat #fff;
+    }
+  </style>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(window).load(function() {
+    // Animate loader off screen
+    $(".se-pre-con").fadeOut("slow");;
+  });
+  </script>
+
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
       <a href="index.html" class="navbar-brand">Vcare</a>
@@ -22,6 +45,12 @@
           </li>
           <li class="nav-item">
             <a href="about.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Donor</a>
           </li>
           <li class="nav-item">
             <a href="contact.html" class="nav-link">Contact</a>
@@ -145,12 +174,45 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 align-self-center">
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae eaque quos eligendi, laboriosam. Culpa consequuntur illum facere id molestias.</p>
-          <a href="#" class="btn btn-outline-danger btn-lg">Learn More</a>
+          <h3>Patient Housing</h3>
+          <p>Staying is a challenge in a big city like Mumbai and expensive too. V Care Foundation supports the patients stay. Rs.22,000/- is paid towards 3 patients stay and gas usage at ACTREC.</p>
         </div>
         <div class="col-md-6">
-          <img src="img/laptop.png" class="img-fluid" alt="">
+          <img src="img1/p1.jpg" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="info" class="py-5 bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img1/p2.jpg" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-6 align-self-center">
+          <h3 class="text-white">Wigs</h3>
+          <p class="text-white">Available for a subsidized donation of Rs. 3000/- for patients and some are given free depending on the category of the file.
+Confidence Bags (patients are given bags made by V Care to keep their drainage bags): Given to all patients who have had surgery to keep their drainage tubes and suction containers. Around 50 bags are given in a month, each bag cost Rs. 25/-.
+Patient Transport: Travelling is a challenge in a city like Mumbai and if one is a patient and is new and has to do the trip to hospital it becomes even more challenging. To ease this difficulty and also to save on some expense on behalf of the patients. V Care has its vans who ferry Patients and caregivers who stay at Dharamshala at Dadar every day to hospital for their treatment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="info" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 align-self-center">
+          <h3>Prosthesis for Breast Cancer Patients</h3>
+          <p>Breast prosthesis for patient who have undergone mastectomy. These are cotton prosthesis which
+are washable and suitable to the Indian climate. The Bra costs Rs. 250/- and the prosthesis costs Rs. 200/,
+Palliative Care: Help is given to those who cannot be treated but who need to be kept comfortable. Patients who are out of Mumbai are
+helped with Rs. 3000/-. Total of 94 patients were supported with Rs. 2,82,000/, Palliative Home Care patients—they are based in
+Mumbai and are helped with Rs. 7000/- every month; they are also monitored by monthly visit.</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img1/p3.jpg" class="img-fluid" alt="">
         </div>
       </div>
     </div>
@@ -165,7 +227,7 @@
             <a
               href="#"
               class="video"
-              data-video="https://www.youtube.com/embed/HnwsG9a5riA"
+              data-video="https://www.youtube.com/watch?v=vZugeYgZbig"
               data-toggle="modal"
               data-target="#videoModal"
             >
@@ -238,7 +300,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <button class="close" data-dismiss="modal"><span>&times;</span></button>
-          <iframe src="https://www.youtube.com/watch?v=vZugeYgZbig" height="350" width="100%" frameborder="0" allowfullscreen></iframe>
+          <iframe src="" height="350" width="100%" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -249,5 +311,6 @@
   <script src="js1/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.js"></script>
   <script src="js1/main.js"></script>
+  <script src="js1/slick.js"></script>
 </body>
 </html>
