@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Volunteer Registration</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/slick-theme.css">
+  <link rel="stylesheet" href="css/slick.css">
+<style>
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+</style>
+</head>
+<body>
+  <form action="/registration" id="registration" method="POST" name="registration">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">V Care</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navNavbar"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item active">
+            <a href="Volunteer.html" class="nav-link">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a href="register_donor.html" class="nav-link">Donor</a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="login.php" class="nav-link">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center">
+          <h1>Patient Registration</h1>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+   <!-- PATIENT REGISTRATION SECTION -->
+  <section id="contact" class="py-3">
+    <div class="container">
+      <div class="row">
+
+        
+          <div class="card p-4">
+            <div class="card-body">
+              <h3 class="text-center">Please fill out this form to contact us</h3>
+              <hr>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="Name" id="Name" placeholder="Name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="number" class="form-control" name="Age" id="Age" placeholder="Age">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="Sex" id="Sex" placeholder="Sex">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input type="password" class="form-control" name="password"  placeholder="Password">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Hospital (File No.)">
+                  </div>
+                </div>
+                
+                 <div class="col-md-4">
+                  <div class="form-group">
+                   <div class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="form-control">Type of Cancer<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+               
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Throats
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Lungs
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Pancreas
+                   </label>
+               </li> 
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                   
+              
+                
+                <div class="col-md-4">
+                  <div class="form-group">
+                   <div class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="form-control">Location<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+               
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Mumbai
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Pune
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Hyderabad
+                   </label>
+               </li> 
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="Phone Number" id="Phone Number" placeholder="Phone Number">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                   <div class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="form-control">Low Income Finance<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      A 'Unique' funding feature of V Care
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Special Finance
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Bone Marrow Transplant(BMT)
+                   </label>
+               </li> 
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Germ Cell Tumor (GCT)
+                   </label>
+               </li> 
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Young Adult Finance (15-18 yrs)
+                   </label>
+               </li> 
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                   <div class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="form-control">Nutritional Support<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       General Day Care
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Protein Powder at Head & Neck Department
+                   </label>
+               </li>
+                        <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Food Support
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Food Coupons
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                       Ek Pyala Chai!
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Infusion Bottles
+                   </label>
+               </li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                   <div class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="form-control">Childcare Support<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                           <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Retinoblastoma
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Infection Control Kit
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Ice Box
+                   </label>
+               </li>
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Discharge Gifts
+                   </label>
+               </li> 
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                   <div class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="form-control">Ensuring Dignity of Patients<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Prosthesis
+                   </label>
+               </li> 
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Wigs
+                   </label>
+               </li> 
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Antim Sanskar Seva (Last rites)
+                   </label>
+               </li> 
+               <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Umbrella
+                   </label>
+               </li> 
+                <li>
+                   <label class="dropdown-menu-item checkbox">
+                       <input type="checkbox" />
+                       <span class="glyphicon glyphicon-unchecked"></span>
+                      Confidence Bags
+                   </label>
+               </li> 
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <textarea class="form-control" placeholder="Follow ups"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <input type="submit" class="btn btn-outline-danger btn-block">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAFF SECTION -->
+  <section id="staff" class="py-5 text-center bg-dark text-white">
+    <div class="container">
+      <h1>Our Team</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">
+          <img src="img/im1.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Vandana Gupta</h4>
+          <small>All Rounder</small>
+        </div>
+        <div class="col-md-3">
+          <img src="img/im2.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Sangeeta Kadakia</h4>
+          <small>Volunteer Management</small>
+        </div>
+        <div class="col-md-3">
+          <img src="img/im3.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Jyoti Patil Shah</h4>
+          <small>Administration and Patient Assistance Program</small>
+        </div>
+        <div class="col-md-3">
+          <img src="img/im4.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Chahna Gandhi</h4>
+          <small>Hospitality Management</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.js"></script>
+  <script src="js/slick.js"></script>
+  <script src="js/main.js"></script>
+  </form>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script>
+  $.validate({
+    lang: 'es'
+  });
+  $(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='registration']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      Name: "required",
+      Age: "required",
+      Sex:"required",
+      Phone number:"required";
+      email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      },
+      password: {
+        required: true,
+        minlength: 5
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      Name: "Please enter your Name",
+      Age: "Please enter your Age",
+      Sex: "Please enter your Sex",
+      Phone number: "Please enter your Phone number",
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 5 characters long"
+      },
+      email: "Please enter a valid email address"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+</script>
+</body>
+</html>

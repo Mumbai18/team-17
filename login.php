@@ -13,36 +13,40 @@ if(isset($_POST['login'])) {
     session_start();
 
     if ($table == "volunteer") {
-        $stmt = $connection->prepare('Select volunteer_name,id,role_id from volunteer');
-        $stmt->execute();
+        $stmt = $connection->prepare('Select volunteer_name,id,role_id from volunteer WHERE volunteer_name = ? and password = ?');
+        // $stmt->bind_param("ss",$username,$password);
+        $stmt->execute([$username,$password]);
         $stmt->store_result();
         $stmt->bind_result($vname, $vid, $vrole);
         $_SESSION['vname'] = $vname;
         $_SESSION['vid'] = $id;
+        echo $vname;
+        echo $vid;
+        echo $vrole;
         if ($vrole == 1) {
-            header('Location:loggedin.php');
-        } else if ($vrole = 2) {
+            header('Location:admin.html');
+        } else if ($vrole == 2) {
 
-            header('Location:loggedin.php');
+            header('Location:volunteer_detail.php');
 
-        } else if ($vrole = 3) {
+        } else if ($vrole == 3) {
 
-            header('Location:loggedin.php');
+            header('Location:volunteer_detail.php');
 
         } else {
-            header('Location:loggedin.php');
+            header('Location:index.html');
         }
     } else if ($table == "donor") {
-        $stmt1 = $connection->prepare('Select name,id from donor');
-        $stmt1->execute();
+        $stmt1 = $connection->prepare('Select name,id from donor where name = ? and password = ?');
+        $stmt1->execute([$username,$password]);
         $stmt1->store_result();
         $stmt1->bind_result($dname, $did);
         if ($stmt1->num_rows > 0) {
             $_SESSION['dname'] = $dname;
             $_SESSION['did'] = $did;
-            header('Location:loggedinw.php');
+            header('Location:donor_detail.php');
         } else {
-            header('Location:loggedin.php');
+            header('Location:login.php');
         }
 
     } else if ($table == "patient") {
@@ -56,17 +60,17 @@ if(isset($_POST['login'])) {
         if ($stmt2->num_rows > 0) {
             $_SESSION['pname'] = $pname;
             $_SESSION['pid'] = $pid;
-            header('Location:loggedissn.php');
+            header('Location:patient_detail.php');
 
 
         } else {
-            header('Location:loggedin.php');
+            header('Location:login.php');
         }
 
 
     } else {
 
-        header('Location:loggedin.php');
+        header('Location:login.php');
 
     }
 
@@ -116,9 +120,12 @@ if(isset($_POST['login'])) {
                 <li class="nav-item">
                     <a href="Donor.html" class="nav-link">Donor</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact</a>
                 </li>
+                <li class="nav-item active">
+                    <a href="login.php" class="nav-link">Login</a>
+                  </li>
             </ul>
         </div>
     </div>
@@ -193,7 +200,7 @@ if(isset($_POST['login'])) {
 
                                 <br>
                                 <div class="col-md-2"></div>
-
+                                <br>
                                 <div class="col-md-12" >
                                 <input type="submit" name="login" value="Login" class="btn btn-outline-danger btn-block">
                             </div>

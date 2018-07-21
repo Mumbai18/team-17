@@ -89,7 +89,7 @@
                           if($sql->execute()){
                             $sql->bind_result($name);
                             while($sql->fetch()){
-                              echo '<option></option>';
+                              echo '<option value='. $name .' > '. $name .'</option>';
                              }
                           }
                           else{
