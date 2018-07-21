@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2018 at 12:26 AM
+-- Generation Time: Jul 22, 2018 at 01:16 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -64,7 +64,9 @@ INSERT INTO `city` (`name`) VALUES
 ('Delhi'),
 ('Hydrebad'),
 ('Mumbai'),
-('Pune');
+('Nagpur'),
+('Pune'),
+('Trivandrum');
 
 -- --------------------------------------------------------
 
@@ -107,24 +109,26 @@ CREATE TABLE `donor` (
   `payment_amt` int(10) DEFAULT NULL,
   `mode_of_payment` varchar(10) NOT NULL,
   `purpose_of_donation` varchar(100) NOT NULL,
-  `Date And Time Of Donation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `Date And Time Of Donation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `email_id` varchar(100) NOT NULL,
+  `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `donor`
 --
 
-INSERT INTO `donor` (`id`, `name`, `pan_no`, `phone_no`, `address`, `payment_amt`, `mode_of_payment`, `purpose_of_donation`, `Date And Time Of Donation`) VALUES
-(1, 'John Keates', 'AJUPS4789R', '9322218765', 'Andheri West', 25000, 'Cheque', '', '2018-07-21 22:03:18'),
-(2, 'Michael Socrates', 'HFPX8973R', '9322217890', 'Bandra West', 30000, 'Cash', '', '2018-07-21 22:03:18'),
-(3, 'Nigam Shah', 'AMGS7856E', '8080567489', 'Borivali East', 78000, 'Neft', '', '2018-07-21 22:03:18'),
-(4, 'Shane Warne', 'HGXY7895D', '9702568432', 'Dadar West', 56000, 'DD', '', '2018-07-21 22:03:18'),
-(5, 'Kalp Shah', 'AJYUS4321F', '9354217890', 'Nagpur', 47000, 'Cheque', '', '2018-07-21 22:03:18'),
-(6, 'Atul Vohra', 'HGFX4562P', '7738657432', 'Bhayander East', 77000, 'DD', '', '2018-07-21 22:03:18'),
-(7, 'Tanishk Patni', 'AJUYS4532Y', '9029675348', 'Pune', 125000, 'DD', '', '2018-07-21 22:03:18'),
-(8, 'Neel Pandya', 'AJUIO5674R', '9929067530', 'Bangalore', 500000, 'Cash', '', '2018-07-21 22:03:18'),
-(9, 'Piyush Bag', 'HUPY7894I', '9892988772', 'Hydrebad', 378000, 'Neft', '', '2018-07-21 22:03:18'),
-(10, 'Nikhil Sakpal', 'AJTY5O674R', '8828657149', 'Trivandrum', 569000, 'DD', '', '2018-07-21 22:03:18');
+INSERT INTO `donor` (`id`, `name`, `pan_no`, `phone_no`, `address`, `payment_amt`, `mode_of_payment`, `purpose_of_donation`, `Date And Time Of Donation`, `email_id`, `password`) VALUES
+(1, 'John Keates', 'AJUPS4789R', '9322218765', 'Mumbai', 25000, 'Cheque', '', '2018-07-21 23:04:26', 'John@abc.com', 'john'),
+(2, 'Michael Socrates', 'HFPX8973R', '9322217890', 'Delhi', 30000, 'Cash', '', '2018-07-21 23:04:26', 'Michael@abc.com', 'michael'),
+(3, 'Nigam Shah', 'AMGS7856E', '8080567489', 'Pune', 78000, 'Neft', '', '2018-07-21 23:04:26', 'Nigam@abc.com', 'nigam'),
+(4, 'Shane Warne', 'HGXY7895D', '9702568432', 'Bangalore', 56000, 'DD', '', '2018-07-21 23:04:26', 'shane@abc.com', 'shane'),
+(5, 'Kalp Shah', 'AJYUS4321F', '9354217890', 'Nagpur', 47000, 'Cheque', '', '2018-07-21 23:04:27', 'kshah@xyz.com', 'kalp'),
+(6, 'Atul Vohra', 'HGFX4562P', '7738657432', 'Mumbai', 77000, 'DD', '', '2018-07-21 23:04:27', 'atul@xyz.com', 'atul'),
+(7, 'Tanishk Patni', 'AJUYS4532Y', '9029675348', 'Pune', 125000, 'DD', '', '2018-07-21 23:04:27', 'tanishk@abc.com', 'tanishk'),
+(8, 'Neel Pandya', 'AJUIO5674R', '9929067530', 'Bangalore', 500000, 'Cash', '', '2018-07-21 23:04:28', 'neel@abc.com', 'neel'),
+(9, 'Piyush Bag', 'HUPY7894I', '9892988772', 'Hydrebad', 378000, 'Neft', '', '2018-07-21 23:04:28', 'piyush@abc.com', 'piyush'),
+(10, 'Nikhil Sakpal', 'AJTY5O674R', '8828657149', 'Trivandrum', 569000, 'DD', '', '2018-07-21 23:04:28', 'nikhil@xyz.com', 'nikhil');
 
 -- --------------------------------------------------------
 
@@ -208,24 +212,25 @@ CREATE TABLE `patient` (
   `file_no` varchar(100) NOT NULL,
   `phone_no` varchar(10) NOT NULL,
   `follow_up` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `email_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`id`, `name`, `hospital`, `age`, `type_of_cancer`, `address`, `date_of_reg`, `last_modified`, `gender`, `file_no`, `phone_no`, `follow_up`, `password`) VALUES
-(1, 'Aditya Sharma', 'JR Hospital', 29, 'Throat Cancer', 'Bhayander East', '2018-07-04 18:37:27', '2018-07-07 18:47:31', 'Male', 'TH765832', '9029456987', 'Follow Up Required weekly', 'aditya'),
-(2, 'Sahil Sawant', 'City Hospital', 47, 'Lung Cancer', 'Mira Road', '2018-04-04 18:48:48', '2018-04-10 18:37:27', 'Male', 'CH678954', '9322218763', 'Medicines Required', 'sahil'),
-(3, 'Vatsaliya Mehta', 'MM Hospital', 58, 'Colon Cancer', 'Kandivali West', '2017-09-18 18:42:27', '2017-09-26 18:43:12', 'Female', 'MM786543', '9920876431', 'Emotional support required', 'vatsaliya'),
-(4, 'Riya Singh', 'City Hospital', 42, 'Bladder Cancer', 'Nagpur', '2018-10-04 18:45:48', '2018-10-18 18:48:52', 'Female', 'CH678754', '8975278654', 'Financial Support Required', 'riya'),
-(5, 'Menka Singh', 'JR Hospital', 56, 'Colorectal Cancer', 'Hydrebad', '2018-12-04 18:48:27', '2018-12-16 18:41:32', 'Female', 'JR987645', '9920768542', 'Medicine Required', 'menka'),
-(6, 'Rahul Tiwari', 'City Hospital', 39, 'Colon Cancer', 'Bangalore', '2018-05-18 18:42:27', '2018-06-06 18:47:30', 'Male', 'CH897651', '8897543672', 'Weekly Follow-Up Required', 'rahul'),
-(7, 'Riddhi Mehta', 'MM Hospital', 49, 'Bladder Cancer', 'Pune', '2018-02-04 18:50:00', '2018-02-18 18:41:00', 'Female', 'MM896523', '7738790543', 'Financial Support Required', 'riddhi'),
-(8, 'Saraswati Sharma', 'City Hospital', 55, 'Lung Cancer', 'Pune', '2018-01-08 18:50:36', '2018-01-22 18:42:30', 'Female', 'CH786543', '8080765432', 'No follow up required', 'saraswati'),
-(9, 'Rohit Sharma', 'JR Hospital', 38, 'Throat Cancer', 'Bhayander East', '2017-06-04 18:42:30', '2017-06-30 18:41:00', 'Male', 'JR879065', '7758945321', 'Medicines Required', 'rohit'),
-(10, 'Shikhar Mishra', 'City Hospital', 53, 'Throat Cancer', 'Pune', '2017-08-04 18:42:00', '2017-08-11 18:48:00', 'Male', 'CH786543', '8080654378', 'no follow up required', 'shikhar');
+INSERT INTO `patient` (`id`, `name`, `hospital`, `age`, `type_of_cancer`, `address`, `date_of_reg`, `last_modified`, `gender`, `file_no`, `phone_no`, `follow_up`, `password`, `email_id`) VALUES
+(1, 'Aditya Sharma', 'JR Hospital', 29, 'Throat Cancer', 'Mumbai', '2018-07-21 23:13:18', '2018-07-07 18:47:31', 'Male', 'JR583234', '9029456987', 'Follow Up Required weekly', 'aditya', 'aditya@abc.com'),
+(2, 'Sahil Sawant', 'City Hospital', 47, 'Lung Cancer', 'Hydrebad', '2018-07-21 23:01:39', '2018-04-10 18:37:27', 'Male', 'CH678954', '9322218763', 'Medicines Required', 'sahil', 'sahil@xyz.com'),
+(3, 'Vatsaliya Mehta', 'MM Hospital', 58, 'Colon Cancer', 'Pune', '2018-07-21 23:01:39', '2017-09-26 18:43:12', 'Female', 'MM786543', '9920876431', 'Emotional support required', 'vatsaliya', 'vatsaliya@abc.com'),
+(4, 'Riya Singh', 'City Hospital', 42, 'Bladder Cancer', 'Nagpur', '2018-07-21 23:01:40', '2018-10-18 18:48:52', 'Female', 'CH678754', '8975278654', 'Financial Support Required', 'riya', 'riya@abc.com'),
+(5, 'Menka Singh', 'JR Hospital', 56, 'Colorectal Cancer', 'Hydrebad', '2018-07-21 23:01:40', '2018-12-16 18:41:32', 'Female', 'JR987645', '9920768542', 'Medicine Required', 'menka', 'menka@abc.com'),
+(6, 'Rahul Tiwari', 'City Hospital', 39, 'Colon Cancer', 'Bangalore', '2018-07-21 23:01:40', '2018-06-06 18:47:30', 'Male', 'CH897651', '8897543672', 'Weekly Follow-Up Required', 'rahul', 'rahul@abc.com'),
+(7, 'Riddhi Mehta', 'MM Hospital', 49, 'Bladder Cancer', 'Pune', '2018-07-21 23:01:40', '2018-02-18 18:41:00', 'Female', 'MM896523', '7738790543', 'Financial Support Required', 'riddhi', 'riddhi@abc.com'),
+(8, 'Saraswati Sharma', 'City Hospital', 55, 'Lung Cancer', 'Pune', '2018-07-21 23:01:40', '2018-01-22 18:42:30', 'Female', 'CH786543', '8080765432', 'No follow up required', 'saraswati', 'saraswati@xyz.com'),
+(9, 'Rohit Sharma', 'JR Hospital', 38, 'Throat Cancer', 'Mumbai', '2018-07-21 23:01:40', '2017-06-30 18:41:00', 'Male', 'JR879065', '7758945321', 'Medicines Required', 'rohit', 'rohit@abc.com'),
+(10, 'Shikhar Mishra', 'City Hospital', 53, 'Throat Cancer', 'Pune', '2018-07-21 23:01:40', '2017-08-11 18:48:00', 'Male', 'CH786543', '8080654378', 'no follow up required', 'shikhar', 'shikhar@abc.com');
 
 -- --------------------------------------------------------
 
@@ -394,12 +399,12 @@ CREATE TABLE `volunteer` (
 --
 
 INSERT INTO `volunteer` (`id`, `volunteer_name`, `skills`, `address`, `phone_no`, `role_id`, `password`, `email_id`) VALUES
-(1, 'Rishi', 'Motivation', 'Bhayander East', '9387217890', 2, 'rishi', ''),
-(2, 'Tanvi Sharma', 'Motivation', 'Bandra East', '9878654731', 3, 'tanvi', ''),
-(3, 'Hardik Shah', 'Motivation', 'Bangalore', '8080675482', 1, 'hardik', ''),
-(4, 'Yuzvendra', 'Good Communication Skills', 'Pune', '7738976548', 2, 'yuzvendra', ''),
-(5, 'Swapnil', 'Motivation', 'Borivali west', '7738790564', 3, 'swapnil', ''),
-(6, 'Mithali ', 'Motivation', 'Pune', '8080797653', 2, 'mithali', '');
+(1, 'Rishi', 'Motivation', 'Mumbai', '9387217890', 2, 'rishi', 'rishi@abc.com'),
+(2, 'Tanvi Sharma', 'Motivation', 'Bangalore', '9878654731', 3, 'tanvi', 'tanvi@xyz.com'),
+(3, 'Hardik Shah', 'Motivation', 'Pune', '8080675482', 1, 'hardik', 'hardik@xyz.com'),
+(4, 'Yuzvendra', 'Good Communication Skills', 'Nagpur', '7738976548', 2, 'yuzvendra', 'yuzvendra@abc.com'),
+(5, 'Swapnil', 'Motivation', 'Trivandrum', '7738790564', 3, 'swapnil', 'swapnil@abc.com'),
+(6, 'Mithali ', 'Motivation', 'Delhi', '8080797653', 2, 'mithali', 'mihtali@abc.com');
 
 --
 -- Indexes for dumped tables
