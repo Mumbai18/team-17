@@ -200,7 +200,7 @@ if(isset($_POST['login'])) {
 
                                 <br>
                                 <div class="col-md-2"></div>
-
+                                <br>
                                 <div class="col-md-12" >
                                 <input type="submit" name="login" value="Login" class="btn btn-outline-danger btn-block">
                             </div>
