@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2018 at 02:42 PM
+-- Generation Time: Jul 21, 2018 at 03:17 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -125,7 +125,8 @@ CREATE TABLE `patient` (
   `gender` varchar(10) NOT NULL,
   `file_no` varchar(100) NOT NULL,
   `phone_no` int(10) NOT NULL,
-  `follow_up` varchar(100) NOT NULL
+  `follow_up` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -138,7 +139,8 @@ CREATE TABLE `patient_volunteer_relation` (
   `patient_id` int(11) NOT NULL,
   `volunteer_id` int(11) NOT NULL,
   `sub_program_id` int(11) NOT NULL,
-  `date_of_allotment` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date_of_allotment` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `comment` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -153,6 +155,27 @@ CREATE TABLE `product` (
   `kit_id` int(11) NOT NULL,
   `quantity` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role`
+--
+
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id`, `name`, `description`) VALUES
+(1, 'Admin', 'Administrative'),
+(2, 'Volunteer', 'Volunteering'),
+(3, 'Help Desk', 'Umeed');
 
 -- --------------------------------------------------------
 
@@ -194,7 +217,9 @@ CREATE TABLE `volunteer` (
   `volunteer_name` varchar(10) DEFAULT NULL,
   `skills` varchar(100) DEFAULT NULL,
   `address` varchar(100) NOT NULL,
-  `phone_no` int(10) NOT NULL
+  `phone_no` int(10) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -262,6 +287,12 @@ ALTER TABLE `product`
   ADD KEY `foreign_key` (`kit_id`);
 
 --
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sub_program`
 --
 ALTER TABLE `sub_program`
@@ -280,7 +311,8 @@ ALTER TABLE `visitor`
 -- Indexes for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -388,6 +420,12 @@ ALTER TABLE `sub_program`
 ALTER TABLE `visitor`
   ADD CONSTRAINT `fk_cancer` FOREIGN KEY (`type_of_cancer`) REFERENCES `cancer_type` (`name_cancer`),
   ADD CONSTRAINT `fk_location` FOREIGN KEY (`location`) REFERENCES `city` (`name`);
+
+--
+-- Constraints for table `volunteer`
+--
+ALTER TABLE `volunteer`
+  ADD CONSTRAINT `volunteer_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
