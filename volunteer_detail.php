@@ -4,6 +4,16 @@
 ?>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Volunteer Registration</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/slick.css">
     <title>Displaying MySQL Data in HTML Table</title>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,7 +136,7 @@
             <a href="contacts.html" class="nav-link">Contact</a>
           </li>
           <li class="nav-item">
-            <a href="login.php" class="nav-link">Login</a>
+<a  href="logout.php" class="nav-link">Logout</a>
           </li>
         </ul>
       </div>
@@ -135,8 +145,9 @@
 
   
 <br><br>
+<h1>Volunteer Details</h1>
 <table class="data-table">
-    <caption class="title">Volunteer Details</caption>
+
     <thead>
     <tr>
         <th>Name</th>
@@ -165,16 +176,16 @@
 
             echo "$phone_no</td><td>";
             echo "$skills</td><td>";
-            echo "$email</td><td>";
+            echo "$email</td></tr>";
         }
     }
     ?>
     </tbody>
 
 </table>
-
+<h1>Volunteer History<h1>
 <table class="data-table">
-    <caption class="title">Volunteer History</caption>
+    
     <thead>
     <tr>
         <th>Patient Name</th>
