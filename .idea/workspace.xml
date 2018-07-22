@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e8ee3286-edf2-4b62-9b87-95beee05c4d5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/patient_detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/volunteer_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/volunteer_detail.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,15 +31,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inventory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inventory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="115" column="36" selection-end-line="129" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -63,8 +52,8 @@
       <file leaf-file-name="donorlist.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/donorlist.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+            <state relative-caret-position="277">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
             </state>
           </provider>
         </entry>
@@ -172,12 +161,12 @@
       <option name="presentableId" value="Default" />
       <updated>1532182246331</updated>
       <workItem from="1532182254473" duration="24589000" />
-      <workItem from="1532210794485" duration="8858000" />
+      <workItem from="1532210794485" duration="9410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33447000" />
+    <option name="totallyTimeSpent" value="33999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -332,8 +321,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/donorlist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+        <state relative-caret-position="277">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
         </state>
       </provider>
     </entry>
