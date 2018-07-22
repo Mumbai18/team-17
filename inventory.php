@@ -100,8 +100,6 @@
     include_once('connection.php');
     session_start();
 
-
-    echo "<table>";
     if($stmt = $connection->prepare("SELECT * FROM product")) {
         $stmt->execute();
         $stmt->bind_result($id, $product_name, $kit_id,$quantity);
@@ -121,8 +119,7 @@
     ?>
     </tbody>
 
-</table>
-    </tbody>
+
 
 </table>
 </body>
