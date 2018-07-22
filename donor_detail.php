@@ -103,7 +103,7 @@
     <?php
     include_once('connection.php');
     session_start();
-    $donor_id="1";
+    $donor_id = $_SESSION['did'];
     // echo "<table>";
     if($stmt = $connection->prepare("SELECT * FROM donor WHERE id = ?")) {
 

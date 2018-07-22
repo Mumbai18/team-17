@@ -44,6 +44,7 @@ if(isset($_POST['login'])) {
         $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($dname, $did);
+        $stmt1->fetch();
         if ($stmt1->num_rows > 0) {
             $_SESSION['dname'] = $dname;
             $_SESSION['did'] = $did;
@@ -59,6 +60,7 @@ if(isset($_POST['login'])) {
         $stmt2->execute();
         $stmt2->store_result();
         $stmt2->bind_result($pname, $pid);
+        $stmt2->fetch();
         //$stmt2->fetch();
         // echo $stmt2->num_rows;
         echo $stmt2->num_rows;
