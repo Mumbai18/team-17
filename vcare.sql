@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2018 at 01:42 AM
+-- Generation Time: Jul 22, 2018 at 03:28 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -109,7 +109,7 @@ CREATE TABLE `donor` (
   `payment_amt` int(10) DEFAULT NULL,
   `mode_of_payment` varchar(10) NOT NULL,
   `purpose_of_donation` varchar(100) NOT NULL,
-  `Date And Time Of Donation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_and_time_of_donation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `email_id` varchar(100) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -118,7 +118,7 @@ CREATE TABLE `donor` (
 -- Dumping data for table `donor`
 --
 
-INSERT INTO `donor` (`id`, `name`, `pan_no`, `phone_no`, `address`, `payment_amt`, `mode_of_payment`, `purpose_of_donation`, `Date And Time Of Donation`, `email_id`, `password`) VALUES
+INSERT INTO `donor` (`id`, `name`, `pan_no`, `phone_no`, `address`, `payment_amt`, `mode_of_payment`, `purpose_of_donation`, `date_and_time_of_donation`, `email_id`, `password`) VALUES
 (1, 'John Keates', 'AJUPS4789R', '9322218765', 'Mumbai', 25000, 'Cheque', '', '2018-07-21 23:04:26', 'John@abc.com', 'john'),
 (2, 'Michael Socrates', 'HFPX8973R', '9322217890', 'Delhi', 30000, 'Cash', '', '2018-07-21 23:04:26', 'Michael@abc.com', 'michael'),
 (3, 'Nigam Shah', 'AMGS7856E', '8080567489', 'Pune', 78000, 'Neft', '', '2018-07-21 23:04:26', 'Nigam@abc.com', 'nigam'),
@@ -404,7 +404,9 @@ INSERT INTO `volunteer` (`id`, `volunteer_name`, `skills`, `address`, `phone_no`
 (3, 'Hardik Shah', 'Motivation', 'Pune', '8080675482', 1, 'hardik', 'hardik@xyz.com'),
 (4, 'Yuzvendra', 'Good Communication Skills', 'Nagpur', '7738976548', 2, 'yuzvendra', 'yuzvendra@abc.com'),
 (5, 'Swapnil', 'Motivation', 'Trivandrum', '7738790564', 3, 'swapnil', 'swapnil@abc.com'),
-(6, 'Mithali ', 'Motivation', 'Delhi', '8080797653', 2, 'mithali', 'mihtali@abc.com');
+(6, 'Mithali ', 'Motivation', 'Delhi', '8080797653', 2, 'mithali', 'mihtali@abc.com'),
+(7, 'Umang Shah', 'administration', 'Mumbai', '9087564372', 1, 'umang', 'umang@abc.com'),
+(8, 'Tanmay Bhatt', 'Management', 'Delhi', '9087569435', 1, 'tanmay', 'tanmay@xyz.com');
 
 --
 -- Indexes for dumped tables
@@ -560,7 +562,7 @@ ALTER TABLE `visitor`
 -- AUTO_INCREMENT for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

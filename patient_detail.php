@@ -108,7 +108,7 @@
     <?php
     include_once('connection.php');
     session_start();
-    $patient_id = session_id();
+    $patient_id = $_SESSION['pid'];
     // echo "<table>";
     if($stmt = $connection->prepare("SELECT * FROM patient WHERE id = ?")) {
 

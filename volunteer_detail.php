@@ -99,14 +99,7 @@
     <?php
     include_once('connection.php');
     session_start();
-    $volunteer_id=session_id();
-
-<<<<<<< HEAD
-    echo "<table>";
-=======
-    //$volunteer_id=session_id();
-    $volunteer_id="1";
->>>>>>> 00f9cb2784a6735b0353f290d8d6b49059782c48
+    $volunteer_id = $_SESSION['vid'];
     if($stmt = $connection->prepare("SELECT * FROM volunteer WHERE id = ?")) {
 
         $stmt->bind_param("i", $volunteer_id);
