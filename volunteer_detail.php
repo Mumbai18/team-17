@@ -1,3 +1,7 @@
+<?php
+    include_once('connection.php');
+    session_start();
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -11,6 +15,14 @@
     <link rel="stylesheet" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/slick.css">
     <title>Displaying MySQL Data in HTML Table</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vcare</title>
+  <link rel="stylesheet" href="css1/font-awesome.min.css">
+  <link rel="stylesheet" href="css1/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" />
+  <link rel="stylesheet" href="css1/style.css">
     <style type="text/css">
         body {
             font-size: 15px;
@@ -90,10 +102,49 @@
         {
             background-color: #ffcccc;
         }
+        .dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
     </style>
 </head>
 <body>
-<a  href="logout.php" ><button name="logout"class="btn btn-primary mt-3" style="float:right;" >Logout</button></a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">VCare</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navNavbar"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navNavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="Volunteer.php" class="nav-link">Patient</a>
+          </li>
+          <li class="nav-item active">
+            <a href="register_donor.html" class="nav-link">Donor</a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+<a  href="logout.php" class="nav-link">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+<br><br>
 <h1>Volunteer Details</h1>
 <table class="data-table">
 
@@ -108,8 +159,6 @@
     </thead>
     <tbody>
     <?php
-    include_once('connection.php');
-    session_start();
     $volunteer_id = $_SESSION['vid'];
     if($stmt = $connection->prepare("SELECT * FROM volunteer WHERE id = ?")) {
 
@@ -257,5 +306,43 @@
     </tbody>
 
 </table>
+  <!-- STAFF SECTION -->
+  <section id="staff" class="py-5 text-center bg-dark text-white">
+    <div class="container">
+      <h1>Our Team</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">
+          <img src="img/im1.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Vandana Gupta</h4>
+          <small>All Rounder</small>
+        </div>
+        <div class="col-md-3">
+          <img src="img/im2.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Sangeeta Kadakia</h4>
+          <small>Volunteer Management</small>
+        </div>
+        <div class="col-md-3">
+          <img src="img/im3.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Jyoti Patil Shah</h4>
+          <small>Administration and Patient Assistance Program</small>
+        </div>
+        <div class="col-md-3">
+          <img src="img/im4.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Chahna Gandhi</h4>
+          <small>Hospitality Management</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.js"></script>
+  <script src="js/slick.js"></script>
+  <script src="js/main.js"></script>
+ 
+
 </body>
 </html>

@@ -139,10 +139,10 @@
 
                                   $stmt2->execute();
                                   $stmt2->store_result();
-                                  $stmt2->bind_result($cityname);
+                                  $stmt2->bind_result($cancername);
                                   if($stmt2-> num_rows > 0){
                                       while($stmt2->fetch()){
-                                          echo '<option value='.$cityname.'>'.$cityname.'</option>';
+                                          echo '<option value="'.$cancername.'">'.$cancername.'</option>';
 
 
                                       }

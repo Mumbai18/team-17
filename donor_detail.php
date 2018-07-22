@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/slick.css">
     <title>Displaying MySQL Data in HTML Table</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vcare</title>
+  <link rel="stylesheet" href="css1/font-awesome.min.css">
+  <link rel="stylesheet" href="css1/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" />
+  <link rel="stylesheet" href="css1/style.css">
     <style type="text/css">
         body {
             font-size: 15px;
