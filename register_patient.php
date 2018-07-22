@@ -50,14 +50,14 @@ $service = $_POST['service'];
         $stmt1->bind_result($id);
         $stmt1->fetch();
         echo "printing".$id."  ".$vid."  ".$service;
-        $stmt2=$connection->prepare("insert into patient_volunteer_relation(patient_id,volunteer_id,sub_program_id,date_of_allotment,comment) values(?,?,?,NOW(),'no comment')");
+        $stmt2=$connection->prepare("insert into patient_volunteer_relation(patient_id,volunteer_id,sub_program_id) values(?,?,?)");
         $stmt2->bind_param("iii",$id,$vid,$service);
         if($stmt2->execute()){
 
             echo "printted";
         }
         else{
-            echo $stmt->error;
+            print "fail".$stmt->error;
         }
     }
     else {
