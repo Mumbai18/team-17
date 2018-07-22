@@ -18,7 +18,6 @@
         h1 {
             margin: 25px auto 0;
             text-align: center;
-            text-transform: uppercase;
             font-size: 17px;
         }
 
@@ -85,36 +84,27 @@
 <body>
 <h1>Table 1</h1>
 <table class="data-table">
-    <caption class="title">Paitent Details</caption>
+    <caption class="title">Donor List</caption>
     <thead>
     <tr>
         <th>Name</th>
+        <th>Pan No</th>
         <th>Phone No</th>
-        <th>Age</th>
-        <th>Hospital</th>
-        <th>Cancer Type</th>
-        <th>address</th>
+        <th>Address</th>
+        <th>Payment amt</th>
+        <th>Mode of payment</th>
 
-
-        <th>Date of Registration</th>
-        <th>Last Modified</th>
-        <th>Gender</th>
-        <th>File No</th>
-        <th>Follow Up</th>
-        <th></th>
     </tr>
     </thead>
     <tbody>
+
     <?php
     include_once('connection.php');
     session_start();
-    $patient_id = $_SESSION['pid'];
-    // echo "<table>";
-    if($stmt = $connection->prepare("SELECT * FROM patient WHERE id = ?")) {
 
-        $stmt->bind_param("s", $patient_id);
+    if($stmt = $connection->prepare("SELECT name,pan_no,phone_no,address,payment_amt,mode_of_payment FROM donor")) {
         $stmt->execute();
-        $stmt->bind_result($id, $name, $hospital, $age, $type_of_cancer, $address, $date_of_reg, $last_modified, $gender, $file_no, $phone_no, $follow_up, $password, $email);
+        $stmt->bind_result($name, $pan_no, $phone_no,$address,$payment_amt,$mode_of_payment);
 
         while ($stmt->fetch()) {
             // Because $name and $countryCode are passed by reference, their value
@@ -122,83 +112,18 @@
 
             echo "<tr><td>";
             echo "$name</td><td>";
+            echo "$pan_no</td><td>";
             echo "$phone_no</td><td>";
+            echo "$address</td><td>";
+            echo "$payment_amt</td><td>";
+            echo "$mode_of_payment</td></tr>";
 
-            echo "$age</td><td>";
-            echo "$hospital</td><td>";
-            echo "$type_of_cancer</td><td>";
-            echo "$address</td>";
-            echo "<td>";
-            echo "$date_of_reg</td><td>";
-            echo "$last_modified</td><td>";
-            echo "$gender</td><td>";
-            echo "$file_no</td><td>";
-            echo "$follow_up<br></td></tr>";
         }
+        $stmt->close();
     }
     ?>
     </tbody>
 
-</table>
-
-<table class="data-table">
-    <caption class="title">Patient History</caption>
-    <thead>
-    <tr>
-
-    <th>Volunteer Name</th>
-    <th>Phone No</th>
-    <th>Skills</th>
-
-        <th>Service</th>
-    </tr>
-
-    </thead>
-    <tbody>
-<!--    --><?php
-$patient_id =session_id();
-
-if($stmt = $connection->prepare("SELECT volunteer_id,sub_program_id FROM patient_volunteer_relation WHERE patient_id = ?")) {
-    $stmt->bind_param("i", $patient_id);
-    $stmt->execute();
-    $stmt->store_result();
-    $stmt->bind_result($volunteer_id,$sub_program_id);
-    $i=0;
-    while ($stmt->fetch()) {
-
-
-        if($stmt1 = $connection->prepare("SELECT volunteer_name,phone_no,skills FROM volunteer WHERE id = ?")){
-            $stmt1->bind_param("i", $volunteer_id);
-            $stmt1->execute();
-            $stmt1->bind_result($name, $phone_no, $skills);
-            while($stmt1->fetch()){
-                echo "<tr><td>";
-                echo "$name</td><td>";
-                echo "$phone_no</td><td>";
-                echo "$skills</td><td>";
-
-            }
-            $stmt1->close();
-        }
-        if($stmt1 = $connection->prepare("SELECT name FROM sub_program WHERE id = ?")){
-            $stmt1->bind_param("i", $sub_program_id);
-            $stmt1->execute();
-            $stmt1->bind_result($name);
-            while($stmt1->fetch()){
-
-                echo "$name</td></tr>";
-
-            }
-            $stmt1->close();
-            $i=$i+1;
-        }
-
-    }$stmt->close();
-}
-
-
-    ?>
-    </tbody>
 
 </table>
 </body>

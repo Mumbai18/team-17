@@ -99,7 +99,6 @@
     <?php
     include_once('connection.php');
     session_start();
-    //$volunteer_id=session_id();
     $volunteer_id = $_SESSION['vid'];
     if($stmt = $connection->prepare("SELECT * FROM volunteer WHERE id = ?")) {
 
@@ -141,8 +140,8 @@
     </thead>
     <tbody>
     <!--    --><?php
-    //$volunteer_id =session_id();
-    $volunteer_id=3;
+    $volunteer_id =session_id();
+    //
     if($stmt = $connection->prepare("SELECT patient_id,sub_program_id FROM patient_volunteer_relation WHERE volunteer_id = ?")) {
         $stmt->bind_param("i", $volunteer_id);
         $stmt->execute();
