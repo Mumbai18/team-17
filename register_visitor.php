@@ -19,10 +19,11 @@ $phone = $_POST['phone_no'];
 $stmt = $connection->prepare('INSERT INTO visitor(name,location,gender,query,type_of_cancer,phone_no,age) values(?,?,?,?,?,?,?)');
 $stmt->bind_param("ssssssi",$patientname,$city,$gender,$reason,$cancertype,$phone,$age);
 
-if($stmt->execute()){
+if($sql->execute()){
+	header('Location:visitor.php');
 }
 else{
-	print $stmt->error;
+	echo "Error encountered";
 }
 
 

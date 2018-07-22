@@ -36,7 +36,13 @@ $currentDateTime = date('Y-m-d');
 echo $currentDateTime;
 $sql = $connection->prepare("INSERT INTO donor ( name,pan_no,phone_no,address,payment_amt,mode_of_payment,purpose_of_donation,email_id,password) VALUES (?,?,?,?,?,?,?,?,?)");
 $sql->bind_param('sssssssss',$name,$pan_no,$phone_no,$address,$payment_amt,$mode_of_payment,$purpose_of_donation,$email,$password);
-$sql->execute();
+
+if($sql->execute()){
+	header('Location:register_donor.html');
+}
+else{
+	echo "Error encountered";
+}
 
 
 

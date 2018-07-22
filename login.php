@@ -123,10 +123,10 @@ if(isset($_POST['login'])) {
                     <a href="Volunteer.php" class="nav-link">Volunteer</a>
                 </li>
                 <li class="nav-item">
-                    <a href="Donor.html" class="nav-link">Donor</a>
+                    <a href="register_donor.html" class="nav-link">Donor</a>
                 </li>
                 <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="contacts.html" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item active">
                     <a href="login.php" class="nav-link">Login</a>
