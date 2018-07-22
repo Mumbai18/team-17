@@ -13,6 +13,9 @@ $address = $_POST['address'];
 $payment_amt = $_POST['payment_amt'];
 $mode_of_payment = $_POST['mode_of_payment'];
 $purpose_of_donation = $_POST['purpose_of_donation'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$currentDateTime = date('Y-m-d');
 
 // $name = 'Shubham';
 // $pan_no = 'Shubham';
@@ -30,9 +33,9 @@ $purpose_of_donation = $_POST['purpose_of_donation'];
 // echo $mode_of_payment;
 // echo $phone_no;
 // echo $purpose_of_donation;
-
-$sql = $connection->prepare("INSERT INTO donor (name,pan_no,phone_no,address,payment_amt,mode_of_payment,purpose_of_donation) VALUES (?,?,?,?,?,?,?)");
-$sql->bind_param('sssssss',$name,$pan_no,$phone_no,$address,$payment_amt,$mode_of_payment,$purpose_of_donation);
+echo $currentDateTime;
+$sql = $connection->prepare("INSERT INTO donor ( name,pan_no,phone_no,address,payment_amt,mode_of_payment,purpose_of_donation,email_id,password) VALUES (?,?,?,?,?,?,?,?,?)");
+$sql->bind_param('sssssssss',$name,$pan_no,$phone_no,$address,$payment_amt,$mode_of_payment,$purpose_of_donation,$email,$password);
 $sql->execute();
 
 
