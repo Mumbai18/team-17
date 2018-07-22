@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+require 'dashboard.php'
+?>
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -81,4 +85,4 @@
   <script src="js1/main.js"></script>
   <script src="js1/slick.js"></script>
 </body>
-</html>
+</html> -->

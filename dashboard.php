@@ -14,6 +14,30 @@
 <?php
  
 include_once("connection.php");
+
+echo '<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Vcare</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navNavbar"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navNavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="register_volunteer.html" class="nav-link">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a href="patientlist.php" class="nav-link">Patient</a>
+          </li>
+          <li class="nav-item">
+            <a href="donorlist.php" class="nav-link">Donor</a>
+          </li>
+          <li class="nav-item">
+            <a href="logout.php" class="nav-link">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>';
+
 $stmt=$connection->prepare('SELECT name from city');
 
 $dataPoints = array();
