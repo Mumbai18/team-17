@@ -153,9 +153,11 @@ if(isset($_POST['login'])) {
                 <div class="card p-4">
                     <div class="card-body">
                         <h4>Get In Touch</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>V Care Foundation.</p>
                         <h4>Address</h4>
-                        <p>550 Main st Boston MA</p>
+                        <p>A - 102, 1st floor, Om Residency,</p>
+                        <p>St. Xavier's Street, Near Tata Hospital,</p>
+                        <p>Opp. Bhoiwada Court, Parel, Mumbai - 400 012</p>
                         <h4>Email</h4>
                         <p>test@test.com</p>
                         <h4>Phone</h4>
