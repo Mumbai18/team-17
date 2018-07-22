@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2018 at 01:42 AM
+-- Generation Time: Jul 22, 2018 at 03:22 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -109,7 +109,7 @@ CREATE TABLE `donor` (
   `payment_amt` int(10) DEFAULT NULL,
   `mode_of_payment` varchar(10) NOT NULL,
   `purpose_of_donation` varchar(100) NOT NULL,
-  `Date And Time Of Donation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_and_time_of_donation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `email_id` varchar(100) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -118,7 +118,7 @@ CREATE TABLE `donor` (
 -- Dumping data for table `donor`
 --
 
-INSERT INTO `donor` (`id`, `name`, `pan_no`, `phone_no`, `address`, `payment_amt`, `mode_of_payment`, `purpose_of_donation`, `Date And Time Of Donation`, `email_id`, `password`) VALUES
+INSERT INTO `donor` (`id`, `name`, `pan_no`, `phone_no`, `address`, `payment_amt`, `mode_of_payment`, `purpose_of_donation`, `date_and_time_of_donation`, `email_id`, `password`) VALUES
 (1, 'John Keates', 'AJUPS4789R', '9322218765', 'Mumbai', 25000, 'Cheque', '', '2018-07-21 23:04:26', 'John@abc.com', 'john'),
 (2, 'Michael Socrates', 'HFPX8973R', '9322217890', 'Delhi', 30000, 'Cash', '', '2018-07-21 23:04:26', 'Michael@abc.com', 'michael'),
 (3, 'Nigam Shah', 'AMGS7856E', '8080567489', 'Pune', 78000, 'Neft', '', '2018-07-21 23:04:26', 'Nigam@abc.com', 'nigam'),
