@@ -108,13 +108,13 @@
     <?php
     include_once('connection.php');
     session_start();
-    $patient_id=session_id();
-    echo "<table>";
+    $patient_id = session_id();
+    // echo "<table>";
     if($stmt = $connection->prepare("SELECT * FROM patient WHERE id = ?")) {
 
         $stmt->bind_param("s", $patient_id);
         $stmt->execute();
-        $stmt->bind_result($id, $name, $hospital, $age, $type_of_cancer, $address, $date_of_reg, $last_modified, $gender, $file_no, $phone_no, $follow_up, $password);
+        $stmt->bind_result($id, $name, $hospital, $age, $type_of_cancer, $address, $date_of_reg, $last_modified, $gender, $file_no, $phone_no, $follow_up, $password, $email);
 
         while ($stmt->fetch()) {
             // Because $name and $countryCode are passed by reference, their value

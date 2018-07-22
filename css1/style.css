@@ -14,16 +14,18 @@ body {
   height: 450px; }
 
 .carousel-image-1 {
-  background: url("../img1/c1.jpg");
+  background: url("../img1/c2.jpg");
   background-size: cover; }
 
 .carousel-image-2 {
-  background: url("../img1/c2.jpg");
+  background: url("../img1/c1.jpg");
   background-size: cover; }
 
 .carousel-image-3 {
   background: url("../img1/c3.jpg");
-  background-size: cover; }
+  background-size: cover; 
+  color: black;
+}
 
 .fa {
   font-size: 55px; }
@@ -62,8 +64,8 @@ footer#main-footer {
   color: #fff; }
 
 #page-header {
-  height: 200px;
-  background: url("../img/image1.jpg");
+  
+  background: url("../img1/cancer.jpg");
   background-position: 0 -360px;
   background-attachment: fixed;
   color: #fff;

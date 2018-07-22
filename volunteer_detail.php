@@ -92,7 +92,7 @@
         <th>Address</th>
         <th>Phone No</th>
         <th>Skills</th>
-
+        <th>Email</th>
     </tr>
     </thead>
     <tbody>
@@ -101,12 +101,17 @@
     session_start();
     $volunteer_id=session_id();
 
+<<<<<<< HEAD
     echo "<table>";
+=======
+    //$volunteer_id=session_id();
+    $volunteer_id="1";
+>>>>>>> 00f9cb2784a6735b0353f290d8d6b49059782c48
     if($stmt = $connection->prepare("SELECT * FROM volunteer WHERE id = ?")) {
 
         $stmt->bind_param("i", $volunteer_id);
         $stmt->execute();
-        $stmt->bind_result($id, $volunteer_name, $skills,$address, $phone_no,$role_id,$password );
+        $stmt->bind_result($id, $volunteer_name, $skills,$address, $phone_no,$role_id,$password,$email);
 
         while ($stmt->fetch()) {
             // Because $name and $countryCode are passed by reference, their value
@@ -118,6 +123,7 @@
 
             echo "$phone_no</td><td>";
             echo "$skills</td><td>";
+            echo "$email</td><td>";
         }
     }
     ?>

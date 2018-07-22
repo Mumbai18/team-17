@@ -90,6 +90,7 @@
     <tr>
         <th>Name</th>
         <th>Pan no</th>
+        <th>Email</th>
         <th>Phone No</th>
         <th>Address</th>
         <th>Payment_amt</th>
@@ -103,12 +104,12 @@
     include_once('connection.php');
     session_start();
     $donor_id="1";
-    echo "<table>";
+    // echo "<table>";
     if($stmt = $connection->prepare("SELECT * FROM donor WHERE id = ?")) {
 
         $stmt->bind_param("i", $donor_id);
         $stmt->execute();
-        $stmt->bind_result($id, $name, $pan_no,$phone_no, $address,$payment_amt,$mode_of_payment,$purpose_of_donation );
+        $stmt->bind_result($id, $name, $pan_no,$phone_no, $address,$payment_amt,$mode_of_payment,$purpose_of_donation,$date,$email_id,$password);
 
         while ($stmt->fetch()) {
             // Because $name and $countryCode are passed by reference, their value
@@ -117,7 +118,7 @@
             echo "<tr><td>";
             echo "$name</td><td>";
             echo "$pan_no</td><td>";
-
+            echo "$email_id</td><td>";
             echo "$phone_no</td><td>";
             echo "$address</td><td>";
             echo "$payment_amt</td><td>";

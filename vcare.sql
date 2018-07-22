@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2018 at 01:16 AM
+-- Generation Time: Jul 22, 2018 at 01:42 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -230,7 +230,7 @@ INSERT INTO `patient` (`id`, `name`, `hospital`, `age`, `type_of_cancer`, `addre
 (7, 'Riddhi Mehta', 'MM Hospital', 49, 'Bladder Cancer', 'Pune', '2018-07-21 23:01:40', '2018-02-18 18:41:00', 'Female', 'MM896523', '7738790543', 'Financial Support Required', 'riddhi', 'riddhi@abc.com'),
 (8, 'Saraswati Sharma', 'City Hospital', 55, 'Lung Cancer', 'Pune', '2018-07-21 23:01:40', '2018-01-22 18:42:30', 'Female', 'CH786543', '8080765432', 'No follow up required', 'saraswati', 'saraswati@xyz.com'),
 (9, 'Rohit Sharma', 'JR Hospital', 38, 'Throat Cancer', 'Mumbai', '2018-07-21 23:01:40', '2017-06-30 18:41:00', 'Male', 'JR879065', '7758945321', 'Medicines Required', 'rohit', 'rohit@abc.com'),
-(10, 'Shikhar Mishra', 'City Hospital', 53, 'Throat Cancer', 'Pune', '2018-07-21 23:01:40', '2017-08-11 18:48:00', 'Male', 'CH786543', '8080654378', 'no follow up required', 'shikhar', 'shikhar@abc.com');
+(10, 'Shikhar Mishra', 'City Hospital', 67, 'Throat Cancer', 'Pune', '2018-07-21 23:29:33', '2017-08-11 18:48:00', 'Male', 'CH786543', '8080654378', 'no follow up required', 'shikhar', 'shikhar@abc.com');
 
 -- --------------------------------------------------------
 
