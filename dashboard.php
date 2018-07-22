@@ -250,7 +250,7 @@ var chart = new CanvasJS.Chart("circleContainer", {
 	theme: "light2",
 	animationEnabled: true,
 	title: {
-		text: "Mens Vs Female"
+		text: "Male Vs Female"
 	},
 	data: [{
 		type: "doughnut",
@@ -322,6 +322,9 @@ chart.render();
             <a href="register_volunteer.html" class="nav-link">Volunteer</a>
           </li>
           <li class="nav-item">
+            <a href="inventory.php" class="nav-link">Inventory Check</a>
+          </li>
+          <li class="nav-item">
             <a href="patientlist.php" class="nav-link">Patient</a>
           </li>
           <li class="nav-item">
@@ -334,11 +337,11 @@ chart.render();
       </div>
     </div>
   </nav>
-
+<!-- 
   <div class="sidenav mt-5">
   <a href="#about" class="active">Data Analysis</a>
-  <a href="inventory.php">Inventory Check</a>
-</div>
+  
+</div> -->
  <div id="chartContainer" style="height: 370px; width: 100%; align:left"></div><br><br>
  <div id="barChartContainer" style="height: 370px; width: 100%; align:right"></div><br><br>
  <div id="circleContainer" style="height: 370px; width: 100%;"></div><br><br>
