@@ -24,7 +24,7 @@ if(isset($_POST['login'])) {
         $_SESSION['vname'] = $vname;
         $_SESSION['vid'] = $vid;
         if ($vrole == 1) {
-            header('Location:admin.html');
+            header('Location:dashboard.php');
         } else if ($vrole == 2) {
 
             header('Location:volunteer_detail.php');
