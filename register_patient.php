@@ -32,7 +32,7 @@ $password="Patient123";
 
 $vid=$_SESSION['vid'];
 //$vid=1;
-echo 'patientname: '.$patientname." ".$hospital." ".$age." ".$city." ".$cancertype." ".$followup;
+// echo 'patientname: '.$patientname." ".$hospital." ".$age." ".$city." ".$cancertype." ".$followup;
 //echo "array".$service;
 
 //if(isset($patientname) && isset($hospital) && isset($city) && isset($age) && isset($followup) && isset($gender) && isset($cancertype) && isset($phone)){
@@ -51,7 +51,13 @@ $service = $_POST['service'];
         $stmt2=$connection->prepare("insert into patient_volunteer_relation(patient_id,volunteer_id,sub_program_id) values(?,?,?)");
         $stmt2->bind_param("iii",$id,$vid,$service);
         if($stmt2->execute()){
-            header('Location:Volunteer.php');
+            ?>
+            <script type="text/javascript">
+                alert("Data entered successfully");
+                window.location = "volunteer_detail.php"
+            </script>
+            <?php
+           // header('Location:volunteer_detail.php');
         }
         else{
             print "fail".$stmt->error;
@@ -63,8 +69,4 @@ $service = $_POST['service'];
 
 }
 //}
-
-
-
-
 ?>

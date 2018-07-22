@@ -38,7 +38,12 @@ $sql = $connection->prepare("INSERT INTO donor ( name,pan_no,phone_no,address,pa
 $sql->bind_param('sssssssss',$name,$pan_no,$phone_no,$address,$payment_amt,$mode_of_payment,$purpose_of_donation,$email,$password);
 
 if($sql->execute()){
-	header('Location:register_donor.html');
+	?>
+            <script type="text/javascript">
+                alert("Data entered successfully");
+                window.location = "volunteer_detail.php"
+            </script>
+            <?php
 }
 else{
 	echo "Error encountered";

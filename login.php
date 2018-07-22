@@ -120,9 +120,6 @@ if(isset($_POST['login'])) {
                     <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="Volunteer.php" class="nav-link">Volunteer</a>
-                </li>
-                <li class="nav-item">
                     <a href="register_donor.html" class="nav-link">Donor</a>
                 </li>
                 <li class="nav-item">
