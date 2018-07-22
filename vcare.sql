@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2018 at 03:22 AM
+-- Generation Time: Jul 22, 2018 at 03:28 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -404,7 +404,9 @@ INSERT INTO `volunteer` (`id`, `volunteer_name`, `skills`, `address`, `phone_no`
 (3, 'Hardik Shah', 'Motivation', 'Pune', '8080675482', 1, 'hardik', 'hardik@xyz.com'),
 (4, 'Yuzvendra', 'Good Communication Skills', 'Nagpur', '7738976548', 2, 'yuzvendra', 'yuzvendra@abc.com'),
 (5, 'Swapnil', 'Motivation', 'Trivandrum', '7738790564', 3, 'swapnil', 'swapnil@abc.com'),
-(6, 'Mithali ', 'Motivation', 'Delhi', '8080797653', 2, 'mithali', 'mihtali@abc.com');
+(6, 'Mithali ', 'Motivation', 'Delhi', '8080797653', 2, 'mithali', 'mihtali@abc.com'),
+(7, 'Umang Shah', 'administration', 'Mumbai', '9087564372', 1, 'umang', 'umang@abc.com'),
+(8, 'Tanmay Bhatt', 'Management', 'Delhi', '9087569435', 1, 'tanmay', 'tanmay@xyz.com');
 
 --
 -- Indexes for dumped tables
@@ -560,7 +562,7 @@ ALTER TABLE `visitor`
 -- AUTO_INCREMENT for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
