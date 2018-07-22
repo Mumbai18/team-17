@@ -109,7 +109,7 @@ if(isset($_POST['login'])) {
     <div class="container">
         <a href="index.html" class="navbar-brand">VCare</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navNavbar"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a href="index.html" class="nav-link">Home</a>
