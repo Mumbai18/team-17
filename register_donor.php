@@ -41,7 +41,7 @@ if($sql->execute()){
 	?>
             <script type="text/javascript">
                 alert("Data entered successfully");
-                window.location = "volunteer_detail.php"
+                window.location = "register_donor.html"
             </script>
             <?php
 }
