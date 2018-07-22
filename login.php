@@ -15,14 +15,14 @@ if(isset($_POST['login'])) {
     if ($table == "volunteer") {
         $stmt = $connection->prepare('Select volunteer_name,id,role_id from volunteer WHERE volunteer_name = ? and password = ?');
         // $stmt->bind_param("ss",$username,$password);
-        $stmt->execute([$username,$password]);
+        // alert('volunteer');
+        $stmt->bind_param('ss',$username,$password);
+        $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result($vname, $vid, $vrole);
+        $stmt->fetch();
         $_SESSION['vname'] = $vname;
-        $_SESSION['vid'] = $id;
-        echo $vname;
-        echo $vid;
-        echo $vrole;
+        $_SESSION['vid'] = $vid;
         if ($vrole == 1) {
             header('Location:admin.html');
         } else if ($vrole == 2) {
@@ -34,11 +34,14 @@ if(isset($_POST['login'])) {
             header('Location:volunteer_detail.php');
 
         } else {
-            header('Location:index.html');
+            header('Location:login.php');
+            // echo $stmt->error;
         }
     } else if ($table == "donor") {
+        // alert('Donor');
         $stmt1 = $connection->prepare('Select name,id from donor where name = ? and password = ?');
-        $stmt1->execute([$username,$password]);
+        $stmt1->bind_param('ss',$username,$password);
+        $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($dname, $did);
         if ($stmt1->num_rows > 0) {
@@ -50,26 +53,26 @@ if(isset($_POST['login'])) {
         }
 
     } else if ($table == "patient") {
-
-        $stmt2 = $connection->prepare('Select name,id from patient');
+        // console.log('Patient');
+        $stmt2 = $connection->prepare('Select name,id from patient where name = ? and password = ?');
+        $stmt2->bind_param('ss',$username,$password);
         $stmt2->execute();
         $stmt2->store_result();
         $stmt2->bind_result($pname, $pid);
         //$stmt2->fetch();
-        echo "".$pname;
+        // echo $stmt2->num_rows;
+        echo $stmt2->num_rows;
         if ($stmt2->num_rows > 0) {
             $_SESSION['pname'] = $pname;
             $_SESSION['pid'] = $pid;
             header('Location:patient_detail.php');
-
-
         } else {
+            // echo $stmt2->num_rows;
             header('Location:login.php');
         }
 
 
     } else {
-
         header('Location:login.php');
 
     }
@@ -135,8 +138,8 @@ if(isset($_POST['login'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-6 m-auto text-center">
-                <h1>Contact Us</h1>
-                <p>To be added</p>
+                <h1>Login</h1>
+                <!-- <p>To be added</p> -->
             </div>
         </div>
     </div>
@@ -170,14 +173,14 @@ if(isset($_POST['login'])) {
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="username" class="form-control" placeholder="user name">
+                                    <input type="text" name="username" class="form-control" placeholder="Username">
                                 </div>
                             </div>
                             <div class="col-md-2"></div>
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
                             </div>
                             <div class="col-md-2"></div>
@@ -216,32 +219,32 @@ if(isset($_POST['login'])) {
 <!-- STAFF SECTION -->
 <section id="staff" class="py-5 text-center bg-dark text-white">
     <div class="container">
-        <h1>Our Staff</h1>
-        <hr>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="img/person1.jpg" alt="" class="img-fluid rounded-circle mb-2">
-                <h4>Jane Doe</h4>
-                <small>Marketing Manager</small>
-            </div>
-            <div class="col-md-3">
-                <img src="img/person2.jpg" alt="" class="img-fluid rounded-circle mb-2">
-                <h4>Sara Williams</h4>
-                <small>Business Manager</small>
-            </div>
-            <div class="col-md-3">
-                <img src="img/person3.jpg" alt="" class="img-fluid rounded-circle mb-2">
-                <h4>John Doe</h4>
-                <small>CEO</small>
-            </div>
-            <div class="col-md-3">
-                <img src="img/person4.jpg" alt="" class="img-fluid rounded-circle mb-2">
-                <h4>Steve Smith</h4>
-                <small>Web Developer</small>
-            </div>
+      <h1>Our Team</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">
+          <img src="img/im1.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Vandana Gupta</h4>
+          <small>All Rounder</small>
         </div>
+        <div class="col-md-3">
+          <img src="img/im2.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Sangeeta Kadakia</h4>
+          <small>Volunteer Management</small>
+        </div>
+        <div class="col-md-3">
+          <img src="img/im3.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Jyoti Patil Shah</h4>
+          <small>Administration and Patient Assistance Program</small>
+        </div>
+        <div class="col-md-3">
+          <img src="img/im4.png" alt="" class="img-fluid rounded-circle mb-2">
+          <h4>Chahna Gandhi</h4>
+          <small>Hospitality Management</small>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
